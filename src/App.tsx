@@ -31,7 +31,7 @@ class App extends React.Component<any, any> {
     Axios
       .get(
         "https://accounting-backend-kpociot.herokuapp.com/hello",
-        { headers: { 'crossOrigin': true }}
+        { headers: { 'Access-Control-Allow-Origin': true }}
       )
       .then((response) => {
         this.setState({ response: response.data });
