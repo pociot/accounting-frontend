@@ -6,6 +6,7 @@ cache:
   - node_modules
 script:
 - yarn run build
+- sonar-scanner
 deploy:
   provider: heroku
   api_key:
@@ -18,5 +19,3 @@ addons:
     organization: "pociot-github" # the key of the org you chose at step #3
     token:
       secure: uwhaSuCM2uLYRtv5bd2gZHJfpkEx2rgzEvZWEiWho1elDqynR5Hrhg+xs2iIaxBRdhntuW9KXVhjXgkctlog1iNUOCafuembAF3WP5GsN1BykLVP+fUqsEhmIjATXG1LWmeaABcfaElQajwHyfdpbLcwH8fU4OOc9uA7ChTE0iK8weBmTSaJSOUdKhDn1+rilkPLkBegEsFa/sAl8gOb0/7sXBlbWB5gZzXeo+I33y0wuNYPlLId/HeUVh2b40p0dcDkqDFxaQ1pUsxo6EHvJ6sIghAw4si/tJZ5fRH7chlF+R4R08SGs2Xt0XYSbWjr/wH+6qiethtvpPDO/j0qaQgi9OyIiUtc89Zlf1/1H/C7vrG56lDH7etsEybkLhHrgYGw6oPv8p+VJz0N/uwT9jsqpf53LwqaF3ytTocTFcnbqD/vlPuOrazaibALfSRLHvCfcxoYSmZfPF60XdbX9lWPU3D7gD8VV4GJ0t1Y8PDWgujmd9YDxpUPdzZucAkiLZ97Tdi/EpG02oT7e5PiW+qdHNx5Lx9PLO2XK25wF2fDV7L+mipP2HbPWeBQQPuiV1sJZq0w5ee9L6pIhiFi6FZ6Cm0Vttr9bR9h9OTC9xhaBvW2G3v+XakEUIOGZuaXxZr5fprs0deAZsAxHOuBMtduMb7wCKbUT+RPL0lF9QQ=
-  script:
-  - sonar-scanner
