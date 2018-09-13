@@ -30,7 +30,7 @@ class App extends React.Component<any, any> {
   private getString() {
     Axios
       .get(
-        "https://accounting-kpociot.herokuapp.com/hello",
+        "https://accounting-backend-kpociot.herokuapp.com/hello",
         { headers: { 'crossOrigin': true }}
       )
       .then((response) => {
