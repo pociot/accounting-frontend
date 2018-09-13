@@ -21,7 +21,7 @@ class App extends React.Component<any, any> {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          {this.state.response}
+          { this.state.response }
         </p>
       </div>
     );
