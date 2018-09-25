@@ -3,7 +3,7 @@ const apiVersion = 'v1';
 
 const hostname = window && window.location && window.location.hostname;
 
-if(hostname === 'https://accounting-kpociot.herokuapp.com') {
+if(hostname === 'accounting-kpociot.herokuapp.com') {
   backendHost = 'https://accounting-backend-kpociot.herokuapp.com';
 } else if(/^qa/.test(hostname)) {
   backendHost = `https://api.${hostname}`;
