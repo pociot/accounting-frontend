@@ -4,6 +4,8 @@ import './App.css';
 import Axios from 'axios';
 import logo from './logo.svg';
 
+import { API_ROOT } from './api-config'
+
 class App extends React.Component<any, any> {
   public state = {
     response: ''
@@ -30,7 +32,7 @@ class App extends React.Component<any, any> {
   private getString() {
     Axios
       .get(
-        "https://accounting-backend-kpociot.herokuapp.com/hello",
+        `${API_ROOT}/hello`,
         { headers: { 'Access-Control-Allow-Origin': true }}
       )
       .then((response) => {
