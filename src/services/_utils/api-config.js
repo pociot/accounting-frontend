@@ -11,4 +11,4 @@ if(hostname === 'hcb-kpociot.herokuapp.com') {
   backendHost = process.env.REACT_APP_BACKEND_HOST || 'http://localhost:8282';
 }
 
-export const API_ROOT = `${backendHost}/accounts/api/${apiVersion}`;
+export const API_ROOT = `${backendHost}`;/*/accounts/api/${apiVersion}`;*/

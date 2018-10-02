@@ -5,7 +5,7 @@ import './App.css';
 import Axios from 'axios';
 import logo from '../../logo.svg';
 
-import { API_ROOT } from '../services/api-config'
+import { API_ROOT } from '../../services/_utils/api-config'
 
 class App extends React.Component<any, any> {
   public state = {
@@ -33,7 +33,7 @@ class App extends React.Component<any, any> {
   private getString() {
     Axios
       .get(
-        `${API_ROOT}/hello`,
+        `${API_ROOT}/accounts/api/v1/hello`,
         { headers: { 'Access-Control-Allow-Origin': true }}
       ).then((response: any) => {
         this.setState({ response: response.data });

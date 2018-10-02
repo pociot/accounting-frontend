@@ -4,7 +4,7 @@ import LoginForm from './LoginForm';
 import './Login.css';
 
 interface IOwnProps {
-  onLogin: (token: string) => void;
+
 }
 
 type TProps = IOwnProps;
@@ -16,7 +16,7 @@ class Login extends Component<TProps, {}> {
       <div className="login-container">
         <h1 className="page-title">Login</h1>
         <div className="login-content">
-          <AntWrappedLoginForm onLogin={this.props.onLogin}/>
+          <AntWrappedLoginForm />
         </div>
       </div>
     );

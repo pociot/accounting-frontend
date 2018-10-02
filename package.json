@@ -10,7 +10,8 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts-ts": "2.17.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "query-string": "5.1.0"
   },
   "scripts": {
     "start": "react-app-rewired start --scripts-version react-scripts-ts",
@@ -25,6 +26,7 @@
     "@types/react-dom": "^16.0.7",
     "@types/react-redux": "^6.0.6",
     "@types/react-router-dom": "^4.3.1",
+    "@types/query-string": "5.1.0",
     "react-app-rewired": "^1.6.2",
     "redux-devtools-extension": "^2.13.5",
     "ts-import-plugin": "^1.5.5",

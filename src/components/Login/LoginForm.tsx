@@ -1,22 +1,29 @@
-import React, { Component, FormEvent } from 'react';
+import React, { Component, FormEvent, ComponentType } from 'react';
+import { compose } from 'redux';
 import { Form, Input, Icon, Button } from 'antd';
 import { FormComponentProps } from 'antd/lib/form'
 import { Link } from 'react-router-dom';
+import { Connectable, TConnectableProps } from './Connectable.hoc';
 
 interface IOwnProps {
-  onLogin: (token: string) => void;
+
 }
 
 type TProps = IOwnProps & FormComponentProps;
 
-class LoginForm extends Component<TProps, {}> {
+interface IFormValues {
+  username: string;
+  password: string;
+}
+
+class LoginForm extends Component<TProps & TConnectableProps, {}> {
   public render() {
     const { getFieldDecorator } = this.props.form;
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Item>
           {
-            getFieldDecorator('usernameOrEmail', {
+            getFieldDecorator('username', {
               rules: [{
                 required: true,
                 message: 'Please enter your username'
@@ -59,8 +66,13 @@ class LoginForm extends Component<TProps, {}> {
 
   private handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    this.props.onLogin('asddsas');
+
+    this.props.form.validateFields((err: Error, values: IFormValues) => {
+      this.props.getUser(values.username, values.password);
+    });
   }
 }
 
-export default LoginForm;
+export default compose(
+  Connectable
+)(LoginForm) as ComponentType<TProps>;
