@@ -1,6 +1,6 @@
 import React, { Component, ComponentType } from 'react'
 import { compose } from 'redux';
-import { Layout, notification } from 'antd';
+import { notification } from 'antd';
 import Login from '../Login/Login';
 import { Connectable } from './Connectable.hoc';
 import { TConnectableProps } from './Connectable.hoc';
@@ -18,7 +18,6 @@ interface IState {
 class Auth extends Component<TProps, IState> {
 
   public componentWillReceiveProps(nextProps: TProps) {
-    console.log('inside willreceiveprops', nextProps);
     if(nextProps.user) {
       notification.success({
         message: 'HCB',
@@ -33,11 +32,7 @@ class Auth extends Component<TProps, IState> {
   }
 
   public render() {
-    return (
-      <Layout>
-        {this.props.user ? this.props.children : <Login /> }
-      </Layout>
-    )
+    return <Login />;
   }
 }
 

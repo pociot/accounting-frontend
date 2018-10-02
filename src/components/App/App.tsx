@@ -1,44 +1,40 @@
-import * as React from 'react';
+import React, { Component, ComponentType } from 'react';
+import { Layout } from 'antd';
+import { Route,
+  withRouter,
+  Switch
+} from 'react-router-dom';
+import { compose } from 'redux';
 
 import './App.css';
+import AppHeader from '../AppHeader/AppHeader';
+import LoginView from '../views/LoginView/LoginView';
+import MainView from '../views/MainView/MainView';
 
-import Axios from 'axios';
-import logo from '../../logo.svg';
-
-import { API_ROOT } from '../../services/_utils/api-config'
-
-class App extends React.Component<any, any> {
-  public state = {
-    response: ''
-  };
-
-  public componentDidMount() {
-    this.getString();
-  }
-
+class App extends Component<any, any> {
   public render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          { this.state.response }
-        </p>
-      </div>
-    );
-  }
-
-  private getString() {
-    Axios
-      .get(
-        `${API_ROOT}/accounts/api/v1/hello`,
-        { headers: { 'Access-Control-Allow-Origin': true }}
-      ).then((response: any) => {
-        this.setState({ response: response.data });
-      })
+      <Layout className="app-container">
+        <AppHeader />
+        <Layout.Content className="app-content">
+          <div className="container">
+            <Switch>
+              <Route exact={true} path="/" component={ MainView }/>
+              <Route path="/login" component={ LoginView }/>
+              {/*<Route path="/signup" component={Signup}></Route>
+              <Route path="/users/:username"
+                     render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}>
+              </Route>
+              <PrivateRoute authenticated={this.state.isAuthenticated} path="/poll/new" component={NewPoll} handleLogout={this.handleLogout}></PrivateRoute>*/}
+              {/*<Route component={NotFound}></Route>*/}
+            </Switch>
+          </div>
+        </Layout.Content>
+      </Layout>
+    )
   }
 }
 
-export default App;
+export default compose(
+  withRouter
+)(App) as ComponentType;
