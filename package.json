@@ -30,6 +30,7 @@
     "react-app-rewired": "^1.6.2",
     "redux-devtools-extension": "^2.13.5",
     "ts-import-plugin": "^1.5.5",
-    "typescript": "^3.0.3"
+    "typescript": "^3.0.3",
+    "tslint-config-airbnb":"^5.11.0"
   }
 }

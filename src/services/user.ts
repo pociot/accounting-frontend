@@ -17,12 +17,22 @@ export const getToken = (username: string, password: string): AxiosPromise<IToke
       username,
       password,
       scope: 'ui',
-      grant_type: 'password'
+      grant_type: 'password',
     }),
     { headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Authorization': 'Basic YnJvd3Nlcjo='
-      },
-    }
-  )
+      'Content-Type': 'application/x-www-form-urlencoded',
+      Authorization: 'Basic YnJvd3Nlcjo=',
+    },
+    },
+  );
+};
+
+export const createUser = (username: string, password: string): AxiosPromise<{}> => {
+  return Axios.post<{}>(
+    `${API_ROOT}/auth/users`,
+    {
+      username,
+      password,
+    },
+  );
 };

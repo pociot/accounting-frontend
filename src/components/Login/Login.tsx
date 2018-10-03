@@ -11,6 +11,7 @@ type TProps = IOwnProps;
 
 class Login extends Component<TProps, {}> {
   public render() {
+    // tslint:disable-next-line
     const AntWrappedLoginForm = Form.create()(LoginForm);
     return (
       <div className="login-container">

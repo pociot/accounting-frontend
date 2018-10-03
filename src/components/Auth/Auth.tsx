@@ -1,9 +1,8 @@
-import React, { Component, ComponentType } from 'react'
+import React, { Component, ComponentType } from 'react';
 import { compose } from 'redux';
 import { notification } from 'antd';
 import Login from '../Login/Login';
-import { Connectable } from './Connectable.hoc';
-import { TConnectableProps } from './Connectable.hoc';
+import { connectable, TConnectableProps } from './Connectable.hoc';
 
 interface IOwnProps {
 
@@ -18,7 +17,7 @@ interface IState {
 class Auth extends Component<TProps, IState> {
 
   public componentWillReceiveProps(nextProps: TProps) {
-    if(nextProps.user) {
+    if (nextProps.user) {
       notification.success({
         message: 'HCB',
         description: `Successfully logged in with token: ${nextProps.user.authDetails.accessToken}`,
@@ -26,8 +25,8 @@ class Auth extends Component<TProps, IState> {
     } else if (nextProps.error) {
       notification.error({
         message: 'HCB',
-        description: nextProps.error
-      })
+        description: nextProps.error,
+      });
     }
   }
 
@@ -37,5 +36,5 @@ class Auth extends Component<TProps, IState> {
 }
 
 export default compose(
-  Connectable
+  connectable,
 )(Auth) as ComponentType<IOwnProps>;

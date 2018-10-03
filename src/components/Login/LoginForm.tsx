@@ -1,7 +1,7 @@
 import React, { Component, FormEvent, ComponentType } from 'react';
 import { compose } from 'redux';
 import { Form, Input, Icon, Button } from 'antd';
-import { FormComponentProps } from 'antd/lib/form'
+import { FormComponentProps } from 'antd/lib/form';
 import { Link } from 'react-router-dom';
 import { Connectable, TConnectableProps } from './Connectable.hoc';
 
@@ -26,15 +26,15 @@ class LoginForm extends Component<TProps & TConnectableProps, {}> {
             getFieldDecorator('username', {
               rules: [{
                 required: true,
-                message: 'Please enter your username'
-              }]
+                message: 'Please enter your username',
+              }],
             })(
               <Input
                 prefix={<Icon type="user" />}
                 size="large"
                 name="username"
                 placeholder="Username"
-              />
+              />,
             )
           }
         </Form.Item>
@@ -43,8 +43,8 @@ class LoginForm extends Component<TProps & TConnectableProps, {}> {
             getFieldDecorator('password', {
               rules: [{
                 required: true,
-                message: 'Please enter your password'
-              }]
+                message: 'Please enter your password',
+              }],
             })(
               <Input
                 prefix={<Icon type="lock" />}
@@ -52,12 +52,14 @@ class LoginForm extends Component<TProps & TConnectableProps, {}> {
                 name="password"
                 type="password"
                 placeholder="Password"
-                />
+                />,
             )
           }
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit" size="large" className="login-form-button">Login</Button>
+          <Button type="primary" htmlType="submit" size="large" className="login-form-button">
+            Login
+          </Button>
           Or <Link to="/signup">register now!</Link>
         </Form.Item>
       </Form>
@@ -74,5 +76,5 @@ class LoginForm extends Component<TProps & TConnectableProps, {}> {
 }
 
 export default compose(
-  Connectable
+  Connectable,
 )(LoginForm) as ComponentType<TProps>;

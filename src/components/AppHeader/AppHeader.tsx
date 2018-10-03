@@ -3,12 +3,13 @@ import { Layout, Menu, Icon } from 'antd';
 import { compose } from 'redux';
 import './AppHeader.css';
 import { Link, withRouter, RouteComponentProps } from 'react-router-dom';
+import { connectable, TConnectableProps } from './Connectable.hoc';
 
 interface IOwnProps {
 
 }
 
-type TProps = IOwnProps & RouteComponentProps;
+type TProps = IOwnProps & RouteComponentProps & TConnectableProps;
 
 interface IState {
 
@@ -27,31 +28,32 @@ class AppHeader extends Component<TProps, IState> {
             mode="horizontal"
             selectedKeys={[this.props.location.pathname]}
             style={{ lineHeight: '64px' }} >
-            {this.getMenuItems(false)}
+            {this.getMenuItems()}
           </Menu>
         </div>
       </Layout.Header>
-    )
+    );
   }
 
-  private getMenuItems = (isAuthenticated: boolean) => {
-    return isAuthenticated ? [
+  private getMenuItems = () => {
+    return this.props.user ? [
       <Menu.Item key="/">
         <Link to="/">
           <Icon type="home" className="nav-icon" />
         </Link>
-      </Menu.Item>
+      </Menu.Item>,
     ] : [
       <Menu.Item key="/login">
         <Link to="/login">Login</Link>
       </Menu.Item>,
       <Menu.Item key="/signup">
         <Link to="/signup">Sign up</Link>
-      </Menu.Item>
-    ]
+      </Menu.Item>,
+    ];
   }
 }
 
 export default compose(
-  withRouter
-)(AppHeader) as ComponentType<IOwnProps> ;
+  withRouter,
+  connectable,
+)(AppHeader) as ComponentType<IOwnProps>;

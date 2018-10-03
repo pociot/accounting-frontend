@@ -3,8 +3,6 @@ import { TRootState } from '../../store';
 
 const mapStateToProps = (state: TRootState) => ({
   user: state.user.currentUser,
-  isFetching: state.user.isFetching,
-  error: state.user.error,
 });
 
 const mapDispatchToProps = {
