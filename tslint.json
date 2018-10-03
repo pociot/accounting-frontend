@@ -14,7 +14,8 @@
     "no-console": false,
     "import-name": [ true, {
       "react": "React",
-      "axios": "Axios"
+      "axios": "Axios",
+      "reduxThunk": "thunk"
     }]
   }
 }

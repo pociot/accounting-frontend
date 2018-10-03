@@ -7,7 +7,7 @@ class MainView extends Component {
       <Fragment>
         <MainPage/>
       </Fragment>
-    )
+    );
   }
 }
 

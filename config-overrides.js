@@ -1,5 +1,6 @@
 const tsImportPluginFactory = require('ts-import-plugin')
-const { getLoader } = require("react-app-rewired");
+const {getLoader} = require('react-app-rewired');
+const rewireLess = require('react-app-rewire-less');
 
 module.exports = function override(config, env) {
   const tsLoader = getLoader(
@@ -12,13 +13,22 @@ module.exports = function override(config, env) {
 
   tsLoader.options = {
     getCustomTransformers: () => ({
-      before: [ tsImportPluginFactory({
+      before: [tsImportPluginFactory({
         libraryDirectory: 'es',
         libraryName: 'antd',
-        style: 'css',
-      }) ]
+        style: true,
+      })]
     })
   };
+
+  config = rewireLess.withLoaderOptions({
+    modifyVars: {
+      "@layout-body-background": "#FFFFFF",
+      "@layout-header-background": "#FFFFFF",
+      "@layout-footer-background": "#FFFFFF"
+    },
+    javascriptEnabled: true,
+  })(config, env);
 
   return config;
 }

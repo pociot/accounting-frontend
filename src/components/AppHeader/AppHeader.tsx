@@ -25,6 +25,7 @@ class AppHeader extends Component<TProps, IState> {
           </div>
           <Menu
             className="app-menu"
+            theme="light"
             mode="horizontal"
             selectedKeys={[this.props.location.pathname]}
             style={{ lineHeight: '64px' }} >

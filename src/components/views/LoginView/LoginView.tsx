@@ -7,7 +7,7 @@ class LoginView extends Component {
       <Fragment>
         <Auth />
       </Fragment>
-    )
+    );
   }
 }
 

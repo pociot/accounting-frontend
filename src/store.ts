@@ -1,16 +1,16 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux'
+import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import thunk from 'redux-thunk'
+import thunk from 'redux-thunk';
 import user from './state/user';
 
 const reducer = combineReducers({
-  user
+  user,
 });
 
-export type TRootState = ReturnType<typeof reducer>
+export type TRootState = ReturnType<typeof reducer>;
 
 const store = createStore(reducer, composeWithDevTools(
-  applyMiddleware(thunk)
+  applyMiddleware(thunk),
 ));
 
 export default store;

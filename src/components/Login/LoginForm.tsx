@@ -3,7 +3,7 @@ import { compose } from 'redux';
 import { Form, Input, Icon, Button } from 'antd';
 import { FormComponentProps } from 'antd/lib/form';
 import { Link } from 'react-router-dom';
-import { Connectable, TConnectableProps } from './Connectable.hoc';
+import { connectable, TConnectableProps } from './Connectable.hoc';
 
 interface IOwnProps {
 
@@ -76,5 +76,5 @@ class LoginForm extends Component<TProps & TConnectableProps, {}> {
 }
 
 export default compose(
-  Connectable,
+  connectable,
 )(LoginForm) as ComponentType<TProps>;

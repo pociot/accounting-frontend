@@ -2,7 +2,7 @@ import React, { Component, ComponentType } from 'react';
 import { Layout } from 'antd';
 import { Route,
   withRouter,
-  Switch
+  Switch,
 } from 'react-router-dom';
 import { compose } from 'redux';
 
