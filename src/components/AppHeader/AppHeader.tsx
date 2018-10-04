@@ -3,7 +3,7 @@ import { Layout, Menu, Icon } from 'antd';
 import { compose } from 'redux';
 import './AppHeader.css';
 import { Link, withRouter, RouteComponentProps } from 'react-router-dom';
-import { connectable, TConnectableProps } from './Connectable.hoc';
+import { connectable, TConnectableProps } from './connectable.hoc';
 
 interface IOwnProps {
 

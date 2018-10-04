@@ -3,7 +3,7 @@ import { compose } from 'redux';
 import { Form, Input, Icon, Button } from 'antd';
 import { FormComponentProps } from 'antd/lib/form';
 import { Link } from 'react-router-dom';
-import { connectable, TConnectableProps } from './Connectable.hoc';
+import { connectable, TConnectableProps } from './connectable.hoc';
 
 interface IOwnProps {
 

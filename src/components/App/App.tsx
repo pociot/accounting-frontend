@@ -10,6 +10,7 @@ import './App.css';
 import AppHeader from '../AppHeader/AppHeader';
 import LoginView from '../views/LoginView/LoginView';
 import MainView from '../views/MainView/MainView';
+import PrivateRoute from '../PrivateRoute';
 
 class App extends Component<any, any> {
   public render() {
@@ -19,7 +20,7 @@ class App extends Component<any, any> {
         <Layout.Content className="app-content">
           <div className="container">
             <Switch>
-              <Route exact={true} path="/" component={ MainView }/>
+              <PrivateRoute exact={true} path="/" component={ MainView }/>
               <Route path="/login" component={ LoginView }/>
             </Switch>
           </div>

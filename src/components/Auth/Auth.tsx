@@ -2,7 +2,7 @@ import React, { Component, ComponentType } from 'react';
 import { compose } from 'redux';
 import { notification } from 'antd';
 import Login from '../Login/Login';
-import { connectable, TConnectableProps } from './Connectable.hoc';
+import { connectable, TConnectableProps } from './connectable.hoc';
 
 interface IOwnProps {
 
