@@ -43,6 +43,11 @@ class AppHeader extends Component<TProps, IState> {
           <Icon type="home" className="nav-icon" />
         </Link>
       </Menu.Item>,
+      <Menu.Item key="logout">
+        <a onClick={this.props.logOut}>
+        Logout
+        </a>
+      </Menu.Item>,
     ] : [
       <Menu.Item key="/login">
         <Link to="/login">Login</Link>

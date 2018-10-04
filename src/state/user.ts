@@ -53,6 +53,15 @@ const getUserFail = duck.defineAction<{ error: Error }>(
   }),
 );
 
+export const logOut = duck.defineAction<{ }>(
+  'LOG_OUT',
+  (_, {}) => ({
+    currentUser: null,
+    isFetching: false,
+    error: null,
+  }),
+);
+
 export default duck.getReducer();
 
 export const getUser =
